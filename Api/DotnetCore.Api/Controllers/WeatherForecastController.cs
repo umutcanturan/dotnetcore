@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DotnetCore.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -17,10 +18,13 @@ namespace DotnetCore.Api.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly ICustomerService _customerService;
+        private readonly IOrderService _orderService;
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ICustomerService customerService, IOrderService orderService)
         {
             _logger = logger;
+            _customerService = customerService;
+            _orderService = orderService;
         }
 
         [HttpGet]
