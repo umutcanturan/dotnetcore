@@ -4,4 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotnetCore.Service\DotnetCore.Service.csproj" />
+    <ProjectReference Include="..\DotnetCore.Repository\DotnetCore.Repository.csproj" />
+    <ProjectReference Include="..\DotnetCore.Common\DotnetCore.Common.csproj" />
+    <ProjectReference Include="..\DotnetCore.Data\DotnetCore.Data.csproj" />
+  </ItemGroup>
 </Project>
