@@ -17,6 +17,7 @@ namespace DotnetCore.Core.Configuration
 			services.AddTransient<IOrderRepository, OrderRepository>();
 			services.AddTransient<IOrderService, OrderService>();
 			services.AddTransient<ICustomerService, CustomerService>();
+			services.AddTransient<IAuthService, AuthService>();
 		}
 	}
 }

@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using DotnetCore.Core.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 namespace DotnetCore.Api
@@ -29,7 +33,33 @@ namespace DotnetCore.Api
         {
             ServiceConfiguration.Inject(services);
             services.AddControllers();
-			services.AddSwaggerGen(c =>
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtBearerOptions =>
+            {
+                jwtBearerOptions.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = context =>
+                    {
+                        var claims = new List<Claim> {
+                            new Claim(ClaimTypes.Name, context.Principal.Identity.Name)
+                        };
+                        var appIdentity = new ClaimsIdentity(claims);
+                        context.Principal.AddIdentity(appIdentity);
+                        return Task.CompletedTask;
+                    },
+                };
+                jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateAudience = true, 
+                    ValidateIssuer = true,
+                    ValidateActor = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("{{THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING}}")),
+                    ValidIssuer = "dotnetapp",
+                    ValidAudience = "dotnetapp"
+                };
+            });
+            services.AddSwaggerGen(c =>
 			{
 				c.SwaggerDoc("v1", new OpenApiInfo { Title = "DotnetCore.Api", Version = "v1" });
 			});
@@ -47,7 +77,7 @@ namespace DotnetCore.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
