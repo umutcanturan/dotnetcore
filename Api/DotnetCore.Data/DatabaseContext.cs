@@ -24,7 +24,7 @@ namespace DotnetCore.Data
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			var connectionString = "User ID=DotnetDbUser;Password=dotnet123;Server=62.171.149.43;Port=8085;Database=DotnetDb;Integrated Security=true;Pooling=true;";
-			optionsBuilder.UseNpgsql(connectionString);
+			optionsBuilder.UseLazyLoadingProxies().UseNpgsql(connectionString);
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
