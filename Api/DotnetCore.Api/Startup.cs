@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using DotnetCore.Core.Configuration;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,7 +33,8 @@ namespace DotnetCore.Api
         public void ConfigureServices(IServiceCollection services)
         {
             ServiceConfiguration.Inject(services);
-            services.AddControllers();
+            ValidatorConfiguration.Inject(services);
+            services.AddControllers().AddFluentValidation();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtBearerOptions =>
             {
                 jwtBearerOptions.Events = new JwtBearerEvents
