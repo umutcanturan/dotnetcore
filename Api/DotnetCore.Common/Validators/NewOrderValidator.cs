@@ -12,7 +12,7 @@ namespace DotnetCore.Common.Validators
 	{
 		public NewOrderValidator()
 		{
-			RuleFor(p => p.ProductName).NotEmpty().WithMessage("Product name field is required");
+			RuleFor(p => p.ProductId).NotNull().WithMessage("Product is required");
 			RuleFor(p => p.CustomerId).NotEqual(0).WithMessage("Customer cannot be empty");
 			RuleFor(p => p.Amount).GreaterThan(0).WithMessage("Order count should be greater than zero");
 		}

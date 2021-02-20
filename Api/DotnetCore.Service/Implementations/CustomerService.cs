@@ -1,4 +1,6 @@
-﻿using DotnetCore.Common.DTOs;
+﻿using AutoMapper;
+using DotnetCore.Common.DTOs;
+using DotnetCore.Data.Entities;
 using DotnetCore.Repository.Interfaces;
 using DotnetCore.Service.Interfaces;
 using System;
@@ -12,18 +14,25 @@ namespace DotnetCore.Service.Implementations
 	public class CustomerService : ICustomerService
 	{
 		private readonly ICustomerRepository _customerRepository;
-		public CustomerService(ICustomerRepository customerRepository)
+		private readonly IMapper _mapper;
+
+		public CustomerService(ICustomerRepository customerRepository, IMapper mapper)
 		{
 			_customerRepository = customerRepository;
+			_mapper = mapper;
 		}
 		public CustomResponse<List<CustomerDTO>> GetAll()
 		{
-			throw new NotImplementedException();
+			var customers = _customerRepository.GetAll().Where(p => p.IsActive).ToList().Select(p => _mapper.Map<CustomerDTO>(p)).ToList();
+			return new CustomResponse<List<CustomerDTO>>(true, customers);
 		}
 
 		public CustomResponse<CustomerDTO> New(CustomerDTO dto)
 		{
-			throw new NotImplementedException();
+			var entity = _mapper.Map<Customer>(dto);
+			entity = _customerRepository.Add(entity);
+			dto.Id = entity.Id;
+			return new CustomResponse<CustomerDTO>(true, dto);
 		}
 	}
 }

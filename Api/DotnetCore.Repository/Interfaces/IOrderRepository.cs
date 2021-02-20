@@ -1,4 +1,5 @@
-﻿using DotnetCore.Data.Entities;
+﻿using DotnetCore.Common.DTOs;
+using DotnetCore.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

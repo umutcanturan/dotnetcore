@@ -13,24 +13,25 @@ namespace DotnetCore.Api.Controllers
 	[Route("api/[controller]/[action]")]
 	[ApiController]
 	[Authorize]
-	public class OrderController : ControllerBase
+	public class ProductController : ControllerBase
 	{
-		private readonly IOrderService _orderService;
-		public OrderController(IOrderService orderService)
+		private readonly IProductService _productService;
+
+		public ProductController(IProductService productService)
 		{
-			_orderService = orderService;
+			_productService = productService;
 		}
 
 		[HttpPost]
-		public IActionResult New([FromBody] OrderDTO dto)
+		public IActionResult New([FromBody] ProductDTO dto)
 		{
-			return Ok(_orderService.New(dto));
+			return Ok(_productService.New(dto));
 		}
 
 		[HttpGet]
-		public IActionResult GetAll([FromQuery] int customerId)
+		public IActionResult GetAll()
 		{
-			return Ok(_orderService.GetCustomerOrders(customerId));
+			return Ok(_productService.GetAll());
 		}
 	}
 }

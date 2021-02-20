@@ -15,9 +15,11 @@ namespace DotnetCore.Core.Configuration
 			services.AddDbContext<DatabaseContext>();
 			services.AddTransient<ICustomerRepository, CustomerRepository>();
 			services.AddTransient<IOrderRepository, OrderRepository>();
+			services.AddTransient<IProductRepository, ProductRepository>();
 			services.AddTransient<IOrderService, OrderService>();
 			services.AddTransient<ICustomerService, CustomerService>();
 			services.AddTransient<IAuthService, AuthService>();
+			services.AddTransient<IProductService, ProductService>();
 		}
 	}
 }

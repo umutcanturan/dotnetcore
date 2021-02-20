@@ -15,6 +15,7 @@ namespace DotnetCore.Core.Mapper
 		{
 			CreateMap<Order, OrderDTO>().ReverseMap();
 			CreateMap<Customer, CustomerDTO>().ReverseMap();
+			CreateMap<Product, ProductDTO>().ReverseMap();
 		}
 	}
 }

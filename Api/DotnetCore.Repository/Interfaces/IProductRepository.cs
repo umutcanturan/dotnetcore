@@ -1,15 +1,15 @@
 ﻿using DotnetCore.Common.DTOs;
 using DotnetCore.Data.Entities;
-using DotnetCore.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotnetCore.Repository.Implementations
+namespace DotnetCore.Repository.Interfaces
 {
-	public class OrderRepository : BaseRepository<Order>, IOrderRepository
+	public interface IProductRepository : IBaseRepository<Product>
 	{
+		bool UpdateStock(OrderDTO dto);
 	}
 }
