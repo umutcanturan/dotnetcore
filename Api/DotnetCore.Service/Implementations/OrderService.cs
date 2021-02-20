@@ -1,4 +1,5 @@
 ﻿using DotnetCore.Common.DTOs;
+using DotnetCore.Repository.Interfaces;
 using DotnetCore.Service.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ namespace DotnetCore.Service.Implementations
 {
 	public class OrderService : IOrderService
 	{
+		private readonly IOrderRepository _orderRepository;
+		public OrderService(IOrderRepository orderRepository)
+		{
+			_orderRepository = orderRepository;
+		}
+
 		public CustomResponse<OrderDTO> Get(int id)
 		{
 			throw new NotImplementedException();

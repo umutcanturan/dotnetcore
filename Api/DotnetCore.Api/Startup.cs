@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using DotnetCore.Core;
 using DotnetCore.Core.Configuration;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -32,8 +33,7 @@ namespace DotnetCore.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ServiceConfiguration.Inject(services);
-            ValidatorConfiguration.Inject(services);
+            ConfigurationBase.Init(services);
             services.AddControllers().AddFluentValidation();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwtBearerOptions =>
             {

@@ -11,6 +11,8 @@ namespace DotnetCore.Core.Configuration
         public static void Inject(IServiceCollection services)
         {
             services.AddTransient<IValidator<LoginDTO>, LoginValidator>();
+            services.AddTransient<IValidator<CustomerDTO>, NewCustomerValidator>();
+            services.AddTransient<IValidator<OrderDTO>, NewOrderValidator>();
         }
     }
 }
