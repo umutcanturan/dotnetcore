@@ -10,8 +10,8 @@ namespace DotnetCore.Service.Interfaces
 	public interface IOrderService
 	{
 		CustomResponse<OrderDTO> New(OrderDTO dto);
-
 		CustomResponse<List<OrderDTO>> GetCustomerOrders(int customerId);
 		CustomResponse<OrderDTO> Get(int id);
+		CustomResponse<List<OrderDTO>> GetAll();
 	}
 }

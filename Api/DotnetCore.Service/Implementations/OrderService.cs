@@ -34,6 +34,12 @@ namespace DotnetCore.Service.Implementations
 			return new CustomResponse<OrderDTO>(true, _mapper.Map<OrderDTO>(order));
 		}
 
+		public CustomResponse<List<OrderDTO>> GetAll()
+		{
+			var orders = _orderRepository.GetAll().Where(p => p.IsActive).ToList().Select(p => _mapper.Map<OrderDTO>(p)).ToList();
+			return new CustomResponse<List<OrderDTO>>(true, orders);
+		}
+
 		public CustomResponse<List<OrderDTO>> GetCustomerOrders(int customerId)
 		{
 			var orders = _orderRepository.GetAll().Where(p => p.CustomerId == customerId && p.IsActive).ToList().Select(p => _mapper.Map<OrderDTO>(p)).ToList();

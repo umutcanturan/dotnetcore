@@ -28,7 +28,20 @@ namespace DotnetCore.Api.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult GetAll([FromQuery] int customerId)
+		public IActionResult GetAll()
+		{
+			return Ok(_orderService.GetAll());
+		}
+
+		[HttpGet]
+		[Route("{id:int}")]
+		public IActionResult Get(int id)
+		{
+			return Ok(_orderService.Get(id));
+		}
+
+		[HttpGet]
+		public IActionResult GetCustomerOrders([FromQuery] int customerId)
 		{
 			return Ok(_orderService.GetCustomerOrders(customerId));
 		}
