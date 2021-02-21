@@ -24,9 +24,9 @@ namespace DotnetCore.Api.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult New([FromBody] CustomerDTO dto)
+		public async Task<IActionResult> New([FromBody] CustomerDTO dto)
 		{
-			return Ok(_customerService.New(dto));
+			return Ok(await _customerService.NewAsync(dto));
 		}
 
 		[HttpGet]

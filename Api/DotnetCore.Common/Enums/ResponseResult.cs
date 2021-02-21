@@ -10,6 +10,7 @@ namespace DotnetCore.Common.Enums
 	{
 		Success = 0,
 		NotFound = 100,
-		NotStockAmount = 200
+		NotStockAmount = 200,
+		CustomerAlreadyExists = 300
 	}
 }

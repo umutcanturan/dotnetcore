@@ -9,7 +9,7 @@ namespace DotnetCore.Service.Interfaces
 {
 	public interface ICustomerService
 	{
-		CustomResponse<CustomerDTO> New(CustomerDTO dto);
+		Task<CustomResponse<CustomerDTO>> NewAsync(CustomerDTO dto);
 		CustomResponse<List<CustomerDTO>> GetAll();
 	}
 }

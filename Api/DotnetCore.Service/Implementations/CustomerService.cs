@@ -27,10 +27,15 @@ namespace DotnetCore.Service.Implementations
 			return new CustomResponse<List<CustomerDTO>>(true, customers);
 		}
 
-		public CustomResponse<CustomerDTO> New(CustomerDTO dto)
+		public async Task<CustomResponse<CustomerDTO>> NewAsync(CustomerDTO dto)
 		{
+			var entityExists =  _customerRepository.GetAll().Any(p => p.IsActive && p.Email == dto.Email);
+			if (entityExists)
+			{
+				return new CustomResponse<CustomerDTO>(false, "Customer already exists", null, Common.Enums.ResponseResult.CustomerAlreadyExists);
+			}
 			var entity = _mapper.Map<Customer>(dto);
-			entity = _customerRepository.Add(entity);
+			entity = await _customerRepository.AddAsync(entity);
 			dto.Id = entity.Id;
 			return new CustomResponse<CustomerDTO>(true, dto);
 		}

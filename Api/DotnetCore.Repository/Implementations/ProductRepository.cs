@@ -1,4 +1,5 @@
 ﻿using DotnetCore.Common.DTOs;
+using DotnetCore.Data;
 using DotnetCore.Data.Entities;
 using DotnetCore.Repository.Interfaces;
 using System;
@@ -13,13 +14,17 @@ namespace DotnetCore.Repository.Implementations
 	{
 		public bool UpdateStock(OrderDTO dto)
 		{
-			var product = Context.Products.FirstOrDefault(p => p.Id == dto.ProductId);
-			if(product != null && product.Stock >= dto.Amount)
+			using(var context = new DatabaseContext())
 			{
-				product.Stock -= dto.Amount;
-				return Context.SaveChanges() > 0;
+				var product = context.Products.FirstOrDefault(p => p.Id == dto.ProductId);
+				if (product != null && product.Stock >= dto.Amount)
+				{
+					product.Stock -= dto.Amount;
+					return context.SaveChanges() > 0;
+				}
+				return false;
 			}
-			return false;
+			
 		}
 	}
 }

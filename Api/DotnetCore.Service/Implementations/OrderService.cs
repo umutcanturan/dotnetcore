@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DotnetCore.Common.DTOs;
 using DotnetCore.Common.Enums;
+using DotnetCore.Common.Helpers;
 using DotnetCore.Data.Entities;
 using DotnetCore.Repository.Interfaces;
 using DotnetCore.Service.Interfaces;
@@ -53,9 +54,12 @@ namespace DotnetCore.Service.Implementations
 			{
 				return new CustomResponse<OrderDTO>(false, "Product is not found", null, ResponseResult.NotFound);
 			}
-			if (!_productRepository.UpdateStock(dto))
+			lock(LockObject.LOCK)
 			{
-				return new CustomResponse<OrderDTO>(false, "Stock is not enough" ,null, ResponseResult.NotStockAmount);
+				if (!_productRepository.UpdateStock(dto))
+				{
+					return new CustomResponse<OrderDTO>(false, "Stock is not enough", null, ResponseResult.NotStockAmount);
+				}
 			}
 			dto.Status = OrderStatus.Waiting;
 			var entity = _mapper.Map<Order>(dto);

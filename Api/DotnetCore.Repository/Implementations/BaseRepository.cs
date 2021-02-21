@@ -1,4 +1,5 @@
 ﻿using DotnetCore.Data;
+using DotnetCore.Data.Factory;
 using DotnetCore.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,9 +13,11 @@ namespace DotnetCore.Repository.Implementations
 {
 	public class BaseRepository<T> where T : class
 	{
-		protected DatabaseContext Context = new DatabaseContext();
+		protected readonly DatabaseContext Context;
+
 		public BaseRepository()
 		{
+			Context = new DatabaseContext();
 		}
 
 		public IQueryable<T> GetAll()
