@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.808.8
@@ -7,21 +6,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{EF753DCC-A61
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7F235A73-3FA5-48C5-9413-46845B6E7171}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Api", "Api\DotnetCore.Api\DotnetCore.Api.csproj", "{F9A24278-F87A-4DC0-BB83-C209F6E8AB64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Api", "Api\DotnetCore.Api\DotnetCore.Api.csproj", "{F9A24278-F87A-4DC0-BB83-C209F6E8AB64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Service", "Api\DotnetCore.Service\DotnetCore.Service.csproj", "{9DD960D8-765D-4447-822E-3907F023E2C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Service", "Api\DotnetCore.Service\DotnetCore.Service.csproj", "{9DD960D8-765D-4447-822E-3907F023E2C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Repository", "Api\DotnetCore.Repository\DotnetCore.Repository.csproj", "{6DB2EFD2-97EE-4962-B7D5-6A29419DC714}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Repository", "Api\DotnetCore.Repository\DotnetCore.Repository.csproj", "{6DB2EFD2-97EE-4962-B7D5-6A29419DC714}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Data", "Api\DotnetCore.Data\DotnetCore.Data.csproj", "{AACCAF28-3975-46AD-B5D3-263F0EB267FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Data", "Api\DotnetCore.Data\DotnetCore.Data.csproj", "{AACCAF28-3975-46AD-B5D3-263F0EB267FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Common", "Api\DotnetCore.Common\DotnetCore.Common.csproj", "{2D150191-3F8D-44B6-BB1D-B28D2AD7376F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Common", "Api\DotnetCore.Common\DotnetCore.Common.csproj", "{2D150191-3F8D-44B6-BB1D-B28D2AD7376F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Core", "Api\DotnetCore.Core\DotnetCore.Core.csproj", "{B604ADD5-14C0-4A0C-9164-83AFB37567F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Core", "Api\DotnetCore.Core\DotnetCore.Core.csproj", "{B604ADD5-14C0-4A0C-9164-83AFB37567F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Service.Test", "Tests\DotnetCore.Service.Test\DotnetCore.Service.Test.csproj", "{38056EC2-15E8-40D1-AB20-06DAFA5A1E3B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetCore.Api.Test", "Tests\DotnetCore.Api.Test\DotnetCore.Api.Test.csproj", "{3E722F79-54CC-4DEB-985A-849DB5A73256}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetCore.Api.Test", "Tests\DotnetCore.Api.Test\DotnetCore.Api.Test.csproj", "{3E722F79-54CC-4DEB-985A-849DB5A73256}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B2269C51-08E7-4ACC-A256-63415E341F5B}"
 EndProject
@@ -31,10 +28,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BE5D2206-25D1-40B0-9316-D7752FD8FEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE5D2206-25D1-40B0-9316-D7752FD8FEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE5D2206-25D1-40B0-9316-D7752FD8FEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE5D2206-25D1-40B0-9316-D7752FD8FEC7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F9A24278-F87A-4DC0-BB83-C209F6E8AB64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F9A24278-F87A-4DC0-BB83-C209F6E8AB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9A24278-F87A-4DC0-BB83-C209F6E8AB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,10 +52,6 @@ Global
 		{B604ADD5-14C0-4A0C-9164-83AFB37567F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B604ADD5-14C0-4A0C-9164-83AFB37567F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B604ADD5-14C0-4A0C-9164-83AFB37567F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38056EC2-15E8-40D1-AB20-06DAFA5A1E3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38056EC2-15E8-40D1-AB20-06DAFA5A1E3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38056EC2-15E8-40D1-AB20-06DAFA5A1E3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38056EC2-15E8-40D1-AB20-06DAFA5A1E3B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E722F79-54CC-4DEB-985A-849DB5A73256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E722F79-54CC-4DEB-985A-849DB5A73256}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E722F79-54CC-4DEB-985A-849DB5A73256}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,9 +64,6 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D5AC9BBE-CBE5-4478-A59E-9930F4D53BCB}
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F9A24278-F87A-4DC0-BB83-C209F6E8AB64} = {EF753DCC-A617-40B9-9CD7-302FBFA80B99}
 		{9DD960D8-765D-4447-822E-3907F023E2C5} = {EF753DCC-A617-40B9-9CD7-302FBFA80B99}
@@ -85,7 +71,9 @@ Global
 		{AACCAF28-3975-46AD-B5D3-263F0EB267FE} = {EF753DCC-A617-40B9-9CD7-302FBFA80B99}
 		{2D150191-3F8D-44B6-BB1D-B28D2AD7376F} = {EF753DCC-A617-40B9-9CD7-302FBFA80B99}
 		{B604ADD5-14C0-4A0C-9164-83AFB37567F3} = {EF753DCC-A617-40B9-9CD7-302FBFA80B99}
-		{38056EC2-15E8-40D1-AB20-06DAFA5A1E3B} = {7F235A73-3FA5-48C5-9413-46845B6E7171}
 		{3E722F79-54CC-4DEB-985A-849DB5A73256} = {7F235A73-3FA5-48C5-9413-46845B6E7171}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5AC9BBE-CBE5-4478-A59E-9930F4D53BCB}
 	EndGlobalSection
 EndGlobal
